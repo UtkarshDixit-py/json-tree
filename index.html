@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="json" id="jsonInput" cols="50" rows="50"></textarea>
+    <button onclick="formatJson()">Format</button>
+</body>
+<script>
+    function formatJson(){
+        const input = document.getElementById("jsonInput").value
+        // console.log(input.value)
+        try {
+            const formattedJson = JSON.stringify(JSON.parse(input),null,2);
+            document.getElementById("jsonInput").value = formattedJson;
+        } catch (error) {
+            console.log("Error", error.message);
+        }
+    }
+</script>
+</html>
